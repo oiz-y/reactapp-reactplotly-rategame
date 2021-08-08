@@ -1,0 +1,12 @@
+.RecentResult {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.List {
+  text-align: left;
+}
+
+.RecentResultElem {
+  cursor: pointer;
+}
