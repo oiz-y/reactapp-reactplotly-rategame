@@ -1,0 +1,31 @@
+.Fields {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.help {
+  margin: 5px;
+	position: relative;
+	top: -1%;
+	left: 2%;
+	padding: 6px 10px;
+	background: #0091EA;
+	color: #FFF;
+	font-size: 0.8rem;
+	border-radius: 10px;
+	transition: 0.5s;
+	opacity: 0;
+}
+
+.help:after {
+	content: "aaa";
+	position: absolute;
+	top: 10px;
+	right: 100%;
+	border: 5px solid transparent;
+	border-right: 12px solid #0091EA;
+}
+
+.help:hover .help {
+	opacity: 1;
+}
