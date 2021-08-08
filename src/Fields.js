@@ -9,7 +9,7 @@ const MENU = [
 
 const RadioMenu = (props) => {
   return (
-    <div>
+    <div className="Menu">
       <input type="radio" id={props.field} name="Fields"
         onClick={() => props.changeMenu(props.field)} />
       <label htmlFor={props.field}>{props.field}<span className="help">help</span></label>
@@ -25,7 +25,6 @@ class Fields extends React.Component {
         <RadioMenu
           field={MENU[i]}
           changeMenu={this.props.changeMenu}
-          registerRecentResult={this.props.registerRecentResult}
         />
       );
     }

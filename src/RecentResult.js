@@ -12,9 +12,9 @@ class RecentResult extends React.Component {
     for (let i = 0; i < list.length; i++) {
       listElement.push(
         <li key={i}>
-          <Test
-            field={list[i]}
-            graph={this.props.graphList[i]}
+          <GraphData
+            field={list[list.length - (i + 1)]}
+            graph={this.props.graphList[list.length - (i + 1)]}
           />
         </li>
       );
@@ -66,7 +66,7 @@ function MyVerticallyCenteredModal(props) {
   );
 }
 
-function Test(props) {
+function GraphData(props) {
   const [modalShow, setModalShow] = React.useState(false);
 
   return (
@@ -74,7 +74,6 @@ function Test(props) {
       <a className="RecentResultElem" variant="primary" onClick={() => setModalShow(true)}>
         {props.field}
       </a>
-
       <MyVerticallyCenteredModal
         show={modalShow}
         onHide={() => setModalShow(false)}

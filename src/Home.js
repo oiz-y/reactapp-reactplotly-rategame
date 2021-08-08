@@ -8,7 +8,10 @@ import {
   black,
   skyBlue,
   scarlet,
-  pointsLength
+  pointsLength,
+  markerSize,
+  url,
+  requestOptions
 } from './Param.js';
 import Welcome from './Welcome.js';
 import MainResult from './MainResult.js';
@@ -46,6 +49,7 @@ class Home extends React.Component {
     const x = this.state.x;
     const y = this.state.y;
     const color = this.state.color;
+
     if (this.state.x.indexOf(xaxis) === -1) {
       x.push(xaxis);
       x.sort((a, b) => a - b);
@@ -58,10 +62,32 @@ class Home extends React.Component {
       y.splice(index, 1);
       color.splice(index, 1);
     }
+
+    const colorLastChanged = color;
+    colorLastChanged[colorLastChanged.length - 1] = skyBlue;
+    const graphList = this.state.recentGraphList;
+    console.log(color, colorLastChanged)
+    graphList[graphList.length - 1] = {
+      lineGraph: this.state.lineGraph,
+      circleGraph: {
+        mode: "markers",
+        x: this.state.x,
+        y: this.state.y,
+        marker: {
+          color: colorLastChanged,
+          size: markerSize,
+          opacity: 0.5
+        },
+        hovertemplate: this.state.hovertemplate
+      },
+      layout: { title: this.state.title }
+    }
+
     this.setState({
       x: [...x],
       y: [...y],
-      color: color
+      color: color,
+      recentGraphList: [...graphList],
     });
   }
 
@@ -80,7 +106,16 @@ class Home extends React.Component {
     }
   }
 
+  getRandomArbitrary(min, max) {
+    return Math.random() * (max - min) + min;
+  }
+
   drawChart() {
+    fetch(url, requestOptions)
+    .then(response => response.text())
+    .then(result => console.log(result))
+    .catch(error => console.log('error', error));
+
     if (!this.state.title) {
       return;
     }
@@ -97,7 +132,16 @@ class Home extends React.Component {
 
     for (let i = 0; i < pointsLength; i++) {
       lineGraph.x.push(i + 1);
-      lineGraph.y.push(Math.random());
+      let yValue;
+      if (i === 0) {
+        yValue = this.getRandomArbitrary(0, 10000);
+      } else {
+        yValue = this.getRandomArbitrary(
+          lineGraph.y[lineGraph.y.length - 1] - 100,
+          lineGraph.y[lineGraph.y.length - 1] + 100
+        );
+      }
+      lineGraph.y.push(yValue);
     }
 
     const list = this.state.recentList;
@@ -119,7 +163,7 @@ class Home extends React.Component {
           y: this.state.y,
           marker: {
             color: this.state.color,
-            size: 30,
+            size: markerSize,
             opacity: 0.5
           },
           hovertemplate: this.state.hovertemplate
@@ -137,8 +181,6 @@ class Home extends React.Component {
     });
   }
 
-
-
   changeMenu(title) {
     this.setState({
       title: title + ' Rate',
@@ -148,12 +190,6 @@ class Home extends React.Component {
       color: [],
       text: [],
     });
-  }
-
-  registerRecentResult(field) {
-    const list = this.state.recentList;
-    list.push(field);
-    this.setState({recentList: list});
   }
 
   render() {
@@ -175,7 +211,7 @@ class Home extends React.Component {
                     y: this.state.y,
                     marker: {
                       color: this.state.color,
-                      size: 30,
+                      size: markerSize,
                       opacity: 0.5
                     },
                     hovertemplate: this.state.hovertemplate
