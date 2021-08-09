@@ -1,0 +1,14 @@
+.login {
+  margin: 20px;
+}
+
+.label {
+  display: inline-block;
+  text-align: left;
+  width: 150px;
+}
+
+.afterInputLoginButton {
+  text-align: center;
+  margin: 30px;
+}

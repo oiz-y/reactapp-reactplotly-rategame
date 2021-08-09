@@ -11,10 +11,9 @@
   background-image: linear-gradient(to right, #7095fa 0%, #40fee5 100%);
 }
 
-title {
-  padding: 1rem 2rem;
-  color: #fff;
-  background-image: -webkit-gradient(linear, left top, right top, from(#fa709a), to(#fee140));
-  background-image: -webkit-linear-gradient(left, #7095fa 0%, #40fee5 100%);
-  background-image: linear-gradient(to right, #7095fa 0%, #40fee5 100%);
+
+
+.loginButton {
+  font-size: 20px;
+  float: right;
 }

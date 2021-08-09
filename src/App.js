@@ -2,6 +2,8 @@ import React from "react";
 import Home from './Home.js';
 import Introduction from './Introduction.js';
 import AboutFields from "./AboutFields.js";
+import SignIn from "./SignIn.js"
+import SignUp from "./SignUp.js"
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 
@@ -14,6 +16,8 @@ class App extends React.Component {
             <Route path="/" exact component={Home} />
             <Route path="/Introduction" exact component={Introduction} />
             <Route path="/AboutFields" exact component={AboutFields} />
+            <Route path="/SignIn" exact component={SignIn} />
+            <Route path="/SignUp" exact component={SignUp} />
           </div>
         </Router>
       </div>
