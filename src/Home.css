@@ -46,6 +46,7 @@
 
 .FieldsMenu {
   text-align: left;
+  width: 100%;
 }
 
 input[type="radio"] {
@@ -84,3 +85,6 @@ input[type="radio"] {
   color: white;
 }
 
+.RecentResultCol {
+  min-width: 180px;
+}

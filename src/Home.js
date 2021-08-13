@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import { Container, Row, Col } from "react-bootstrap";
 import { Link } from 'react-router-dom';
 import createPlotlyComponent from 'react-plotly.js/factory';
@@ -39,6 +39,8 @@ class Home extends React.Component {
       isChecked: false,
       recentList: [],
       recentGraphList: [],
+      width: 700,
+      height: 450
     };
   }
 
@@ -192,16 +194,29 @@ class Home extends React.Component {
     });
   }
 
+  updateDimensions = () => {
+    this.setState({
+      width: window.innerWidth / 2,
+      height: window.innerHeight / 2
+    });
+  };
+  componentDidMount() {
+    window.addEventListener('resize', this.updateDimensions);
+  }
+  // componentWillUnmount() {
+  //   window.removeEventListener('resize', this.updateDimensions);
+  // }
+
   render() {
     return (
       <div className="App">
         <Welcome />
-        <Container>
+        <Container className="container">
           <Row>
             <Col xs={2} className="FieldsMenu">
               <Fields changeMenu={this.changeMenu.bind(this)} />
             </Col>
-            <Col xs={8}>
+            <Col xs={8} className="Chart">
               <Plot
                 data={[
                   this.state.lineGraph,
@@ -218,13 +233,17 @@ class Home extends React.Component {
                   }
                 ]}
                 layout={
-                  {title: this.state.title}
+                  {
+                    title: this.state.title,
+                    width: this.state.width,
+                    height: this.state.height
+                  }
                 }
                 onClick={(e) => this.clickPoint(e)}
                 onHover={(e) => this.hoverPoint(e, skyBlue, scarlet)}
                 onUnhover={(e) => this.hoverPoint(e, scarlet, skyBlue)} />
             </Col>
-            <Col xs={2}>
+            <Col xs={2} className="RecentResultCol">
               <RecentResult
                 list={this.state.recentList}
                 graphList={this.state.recentGraphList}

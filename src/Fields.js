@@ -12,7 +12,7 @@ const RadioMenu = (props) => {
     <div className="Menu">
       <input type="radio" id={props.field} name="Fields"
         onClick={() => props.changeMenu(props.field)} />
-      <label htmlFor={props.field}>{props.field}<span className="help">help</span></label>
+      <label htmlFor={props.field}>{props.field}</label>
     </div>
   );
 }
@@ -37,7 +37,7 @@ class Fields extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="listFieldsMenu">
         <p className="Fields">Fields Menu</p>
         {this.createList(MENU)}
       </div>
