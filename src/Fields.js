@@ -37,9 +37,11 @@ class Fields extends React.Component {
 
   render() {
     return (
-      <div className="listFieldsMenu">
-        <p className="Fields">Fields Menu</p>
-        {this.createList(MENU)}
+      <div className="Fields">
+        <p className="FieldsTitle">Fields Menu</p>
+        <div className="listFieldsMenu">
+          {this.createList(MENU)}
+        </div>
       </div>
     );
   }

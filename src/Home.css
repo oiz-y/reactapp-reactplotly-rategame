@@ -45,8 +45,8 @@
 }
 
 .FieldsMenu {
-  text-align: left;
   width: 100%;
+  min-width: 130px;
 }
 
 input[type="radio"] {
@@ -87,4 +87,10 @@ input[type="radio"] {
 
 .RecentResultCol {
   min-width: 180px;
+}
+
+.MainContainer {
+  width: 100%;
+  margin: 0px;
+  max-width: none;
 }

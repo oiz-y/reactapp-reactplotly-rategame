@@ -1,8 +1,9 @@
-.Fields {
+.FieldsTitle {
   font-size: 25px;
   font-weight: bold;
 }
 
 .listFieldsMenu {
-  min-width: 130px;
+  text-align: left;
+  margin-left: 20%;
 }

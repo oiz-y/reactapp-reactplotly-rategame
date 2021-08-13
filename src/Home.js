@@ -196,7 +196,7 @@ class Home extends React.Component {
 
   updateDimensions = () => {
     this.setState({
-      width: window.innerWidth / 2,
+      width: window.innerWidth / 1.6,
       height: window.innerHeight / 2
     });
   };
@@ -211,9 +211,9 @@ class Home extends React.Component {
     return (
       <div className="App">
         <Welcome />
-        <Container className="container">
+        <Container className="MainContainer">
           <Row>
-            <Col xs={2} className="FieldsMenu">
+            <Col xs={2}>
               <Fields changeMenu={this.changeMenu.bind(this)} />
             </Col>
             <Col xs={8} className="Chart">
