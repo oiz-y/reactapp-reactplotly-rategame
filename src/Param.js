@@ -15,3 +15,7 @@ export const url = "https://aos7avjyv7.execute-api.ap-northeast-1.amazonaws.com/
 export const requestOptions = {
   method: 'GET'
 };
+export const poolData = {
+  UserPoolId: 'ap-northeast-1_5xRCNGPgo',
+  ClientId: '56ufe6b4pmufnnloun431dqabb'
+};

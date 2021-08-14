@@ -264,6 +264,9 @@ class Home extends React.Component {
         <Link to="/AboutFields" className="FieldsLink">
           About Fields
         </Link>
+        <Link to="/Account" className="FieldsLink">
+          Account
+        </Link>
       </div>
     );
   }

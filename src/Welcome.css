@@ -10,10 +10,3 @@
   background-image: -webkit-linear-gradient(left, #7095fa 0%, #40fee5 100%);
   background-image: linear-gradient(to right, #7095fa 0%, #40fee5 100%);
 }
-
-
-
-.loginButton {
-  font-size: 20px;
-  float: right;
-}

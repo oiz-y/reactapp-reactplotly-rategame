@@ -80,7 +80,23 @@ input[type="radio"] {
   transition: 0.3s;
 }
 
+.SignLink {
+  margin: 10px;
+  display: inline-block;
+  padding: 0.3em 1em;
+  text-decoration: none;
+  color: rgb(17, 0, 255);
+  border: solid 2px rgb(17, 0, 255);
+  border-radius: 3px;
+  transition: 0.3s;
+}
+
 .FieldsLink:hover {
+  background: rgb(17, 0, 255);
+  color: white;
+}
+
+.SignLink:hover {
   background: rgb(17, 0, 255);
   color: white;
 }
