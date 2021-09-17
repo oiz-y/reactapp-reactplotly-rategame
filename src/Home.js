@@ -113,10 +113,10 @@ class Home extends React.Component {
   }
 
   drawChart() {
-    fetch(url, requestOptions)
-    .then(response => response.text())
-    .then(result => console.log(result))
-    .catch(error => console.log('error', error));
+//     fetch(url, requestOptions)
+//     .then(response => response.text())
+//     .then(result => console.log(result))
+//     .catch(error => console.log('error', error));
 
     if (!this.state.title) {
       return;
